@@ -21,6 +21,12 @@ class DefaultController extends Controller
 
     public function infoAction($id)
     {
+        $product = $this->getDoctrine()->getRepository('GeekhubShopBundle:Product')->findOneById($id);
 
+        if (!$product) {
+            throw new \Exception("Product not found!");
+        }
+
+        return $this->render('GeekhubShopBundle:Default:info.html.twig', array('products' => $product));
     }
 }

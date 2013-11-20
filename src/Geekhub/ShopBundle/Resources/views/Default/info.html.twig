@@ -1,0 +1,14 @@
+{% extends 'GeekhubShopBundle::layout.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+            <div class="col-lg-4">
+                <h2>{{ products.name }}</h2>
+                <p class="text-danger">{{ products.description }}</p>
+                <p>Цена:{{ products.price }}</p>
+            </div>
+    </div>
+
+    {% include ('GeekhubShopBundle::footer.html.twig') %}
+{% endblock %}
