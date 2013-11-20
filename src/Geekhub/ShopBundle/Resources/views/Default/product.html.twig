@@ -1,0 +1,18 @@
+{% extends 'GeekhubShopBundle::layout.html.twig' %}
+{% set activeMenu = 'Product' %}
+
+{% block body %}
+
+    <div class="row">
+    {% for product in products %}
+    <div class="col-lg-4">
+        <h2>{{ product.name }}</h2>
+        <p class="text-danger">{{ product.description }}</p>
+        <p>Цена:{{ product.price }}</p>
+        <p><a class="btn btn-primary" href="{{ path('geekhub_shop_infopage', {'id': product.id}) }}" role="button">View details &raquo;</a></p>
+    </div>
+    {% endfor %}
+    </div>
+
+    {% include ('GeekhubShopBundle::footer.html.twig') %}
+{% endblock %}

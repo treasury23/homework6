@@ -1,3 +1,21 @@
 geekhub_shop_homepage:
     pattern:  /
     defaults: { _controller: GeekhubShopBundle:Default:index }
+
+geekhub_shop_productpage:
+    pattern:  /Product
+    defaults: { _controller: GeekhubShopBundle:Default:product }
+
+geekhub_shop_aboutpage:
+    pattern:  /About
+    defaults: { _controller: GeekhubShopBundle:Default:about }
+
+geekhub_shop_contactpage:
+    pattern:  /Contact
+    defaults: { _controller: GeekhubShopBundle:Default:contact }
+
+geekhub_shop_infopage:
+    pattern:  /Info/{id}/
+    defaults: { _controller: GeekhubShopBundle:Default:info }
+
+
