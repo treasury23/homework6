@@ -1,0 +1,31 @@
+<?php
+
+namespace Geekhub\ShopBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="type_product")
+ */
+class TypeProduct
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $title;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Manufactured", inversedBy="type_product")
+     * @ORM\JoinColumn(name="manufactured_id", referencedColumnName="id")
+     */
+    protected $manufactured;
+}
