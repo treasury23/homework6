@@ -28,8 +28,4 @@ class Category
      */
     protected $product;
 
-    public function __construct()
-    {
-        $this->product = new ArrayCollection();
-    }
 }

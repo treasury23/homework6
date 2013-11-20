@@ -15,24 +15,31 @@ class Category
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer $id
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @var string title
      */
     protected $title;
 
     /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
      * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
      */
     protected $product;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->product = new ArrayCollection();
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    
     /**
      * Get id
      *

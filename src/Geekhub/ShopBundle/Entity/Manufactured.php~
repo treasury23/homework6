@@ -32,11 +32,4 @@ class Manufactured
      * @ORM\ManyToMany(targetEntity="TypeProduct", mappedBy="manufactured")
      */
     protected $typeProduct;
-
-
-    public function __construct()
-    {
-        $this->product = new ArrayCollection();
-        $this->typeProduct = new ArrayCollection();
-    }
 }

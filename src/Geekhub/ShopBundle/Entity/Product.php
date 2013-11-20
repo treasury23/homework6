@@ -15,21 +15,25 @@ class Product
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer $id
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=150)
+     * @var string name
      */
     protected $name;
 
     /**
      * @ORM\Column(type="text")
+     * @var string description
      */
     protected $description;
 
     /**
      * @ORM\Column(type="integer")
+     * @var integer price
      */
     protected $price;
 
@@ -44,12 +48,6 @@ class Product
      * @ORM\JoinColumn(name="manufactured_id", referencedColumnName="id")
      */
     protected $manufactured;
-
-    public function __constract()
-    {
-        $this->category = new ArrayCollection();
-        $this->manufactured = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -110,7 +108,7 @@ class Product
     /**
      * Set price
      *
-     * @param float $price
+     * @param integer $price
      * @return Product
      */
     public function setPrice($price)
@@ -123,7 +121,7 @@ class Product
     /**
      * Get price
      *
-     * @return float 
+     * @return integer 
      */
     public function getPrice()
     {
@@ -131,10 +129,12 @@ class Product
     }
 
     /**
-     * @param ArrayCollection $category
-     * @return $this
+     * Set category
+     *
+     * @param \Geekhub\ShopBundle\Entity\Category $category
+     * @return Product
      */
-    public function setCategory(ArrayCollection $category)
+    public function setCategory(\Geekhub\ShopBundle\Entity\Category $category)
     {
         $this->category = $category;
     
@@ -142,7 +142,9 @@ class Product
     }
 
     /**
-     * @return ArrayCollection
+     * Get category
+     *
+     * @return \Geekhub\ShopBundle\Entity\Category 
      */
     public function getCategory()
     {
@@ -150,10 +152,12 @@ class Product
     }
 
     /**
-     * @param ArrayCollection $manufactured
-     * @return $this
+     * Set manufactured
+     *
+     * @param \Geekhub\ShopBundle\Entity\Manufactured $manufactured
+     * @return Product
      */
-    public function setManufactured(ArrayCollection $manufactured)
+    public function setManufactured(\Geekhub\ShopBundle\Entity\Manufactured $manufactured)
     {
         $this->manufactured = $manufactured;
     
@@ -161,7 +165,9 @@ class Product
     }
 
     /**
-     * @return ArrayCollection
+     * Get manufactured
+     *
+     * @return \Geekhub\ShopBundle\Entity\Manufactured 
      */
     public function getManufactured()
     {

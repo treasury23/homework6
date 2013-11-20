@@ -15,20 +15,24 @@ class TypeProduct
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer $id
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @var string title
      */
     protected $title;
 
     /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
      * @ORM\ManyToMany(targetEntity="Manufactured", inversedBy="type_product")
-     * @ORM\JoinColumn(name="manufactured_id", referencedColumnName="id")
+     * @ORM\JoinTable(name="manufactured_typeproduct")
      */
     protected $manufactured;
-    /**
+     /**
      * Constructor
      */
     public function __construct()

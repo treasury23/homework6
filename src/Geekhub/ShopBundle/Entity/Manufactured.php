@@ -15,31 +15,38 @@ class Manufactured
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer $id
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @var string title
      */
     protected $title;
 
     /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
      * @ORM\OneToMany(targetEntity="Product", mappedBy="manufactured")
      */
     protected $product;
 
     /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
      * @ORM\ManyToMany(targetEntity="TypeProduct", mappedBy="manufactured")
      */
     protected $typeProduct;
-
-
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->product = new ArrayCollection();
-        $this->typeProduct = new ArrayCollection();
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->typeProduct = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    
     /**
      * Get id
      *

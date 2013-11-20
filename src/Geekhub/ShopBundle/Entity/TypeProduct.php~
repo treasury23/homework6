@@ -28,4 +28,4 @@ class TypeProduct
      * @ORM\JoinColumn(name="manufactured_id", referencedColumnName="id")
      */
     protected $manufactured;
-}
+ }

@@ -2,6 +2,7 @@
 
 namespace Geekhub\ShopBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,7 +29,7 @@ class Product
     protected $description;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
+     * @ORM\Column(type="integer")
      */
     protected $price;
 
