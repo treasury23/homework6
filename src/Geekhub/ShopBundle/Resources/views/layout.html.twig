@@ -1,0 +1,24 @@
+{% if activeMenu is not defined %}{% set activeMenu='' %}{% endif %}
+{% extends '::base.html.twig' %}
+
+{% block menu %}
+    <div class="container">
+
+    <div class="masthead">
+        <h3 class="text-muted">Geekhub</h3>
+        <ul class="nav nav-justified">
+            <li class="{% if activeMenu == '/' %}active{% endif %}">
+                <a href="{{ path('geekhub_shop_homepage') }}">Home</a>
+            </li>
+            <li class="{% if activeMenu == "Product" %}active{% endif %}">
+                <a href="{{ path('geekhub_shop_productpage') }}">Product</a>
+            </li>
+            <li class="{% if activeMenu == "About" %}active{% endif %}">
+                <a href="{{ path('geekhub_shop_aboutpage') }}">About</a>
+            </li>
+            <li class="{% if activeMenu == "Contact" %}active{% endif %}">
+                <a href="{{ path('geekhub_shop_contactpage') }}">Contact</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
