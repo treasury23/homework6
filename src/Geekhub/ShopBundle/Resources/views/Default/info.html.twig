@@ -7,6 +7,9 @@
                 <h2>{{ products.name }}</h2>
                 <p class="text-danger">{{ products.description }}</p>
                 <p>Цена:{{ products.price }}</p>
+                <p>Производитель:{{ products.manufactured.title }}</p>
+                <p>Категория товара:{{ products.category.title }}</p>
+                <p><a class="btn btn-primary" href="{{ path('geekhub_shop_productpage') }}" role="button">View All Products &raquo;</a></p>
             </div>
     </div>
 

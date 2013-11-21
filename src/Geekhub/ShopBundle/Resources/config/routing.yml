@@ -18,4 +18,8 @@ geekhub_shop_infopage:
     pattern:  /Info/{id}/
     defaults: { _controller: GeekhubShopBundle:Default:info }
 
+geekhub_shop_removepage:
+    pattern:  /Product/{id}/
+    defaults: { _controller: GeekhubShopBundle:Default:deleteProduct }
+
 

@@ -10,6 +10,9 @@
         <p class="text-danger">{{ product.description }}</p>
         <p>Цена:{{ product.price }}</p>
         <p><a class="btn btn-primary" href="{{ path('geekhub_shop_infopage', {'id': product.id}) }}" role="button">View details &raquo;</a></p>
+        <form method="POST" action="{{ path('geekhub_shop_removepage', {'id': product.id}) }}">
+            <button type="submit" class="btn btn-danger" href="#" role="button">Remove product &raquo;</button>
+        </form>
     </div>
     {% endfor %}
     </div>

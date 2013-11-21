@@ -5,6 +5,7 @@ namespace Geekhub\ShopBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Doctrine\ORM\EntityManager;
 
+
 class DefaultController extends Controller
 {
     public function indexAction()
@@ -28,5 +29,20 @@ class DefaultController extends Controller
         }
 
         return $this->render('GeekhubShopBundle:Default:info.html.twig', array('products' => $product));
+    }
+
+    public function deleteProductAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $product = $em->getRepository('GeekhubShopBundle:Product')->find($id);
+
+        if (!$product) {
+            throw new \Exception("Product not found!");
+        }
+
+        $em->remove($product);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('geekhub_shop_productpage'));
     }
 }
